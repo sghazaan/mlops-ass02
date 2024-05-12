@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mlops:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mlops:latest
+    volumes:
+      - ./airflow:/opt/airflow
+    ports:
+      - "8081:8080"   # Change the host port to 8081
+    command: airflow standalone
